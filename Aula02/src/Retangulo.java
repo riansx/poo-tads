@@ -1,25 +1,37 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+import java.lang.Math;
 
-/**
- *
- * @author Aluno
- */
 public class Retangulo {
     double largura, altura;
     
-    double area(){
-        double area;
-        area = largura * altura;
-        return area;
-        
-        
+    //Construtor
+    Retangulo(double l, double a){
+        inicia(l, a);
+    }
+    void inicia(double lar, double alt){
+        largura = lar;
+        altura = alt;
     }
     
-    void iniciaRetangulo(double l, double a){
-        largura = l;
-        altura = a;
+    double area(){
+        return largura*altura;
+    }
+    
+    double diagonal(double largura, double altura){
+        double diagonal = (largura * largura) + (altura * altura);
+        diagonal*=diagonal;
+        return diagonal;
+    }
+    
+    /* double diagonal(){
+        return Math.sqrt();
+        Math.pow(altura,2) + Math.pow(largura,2);
+    }
+    */
+    double retornarAltura(){
+        return altura;
+    }
+    
+    double retornarLargura(){
+        return largura;
     }
 }
