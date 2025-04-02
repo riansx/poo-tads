@@ -14,15 +14,32 @@ public class SysCaixa {
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-
+        double num;
         CaixaRegistradora caixa = new CaixaRegistradora(0.0, 0.0);
 
         System.out.println("Digite o valor do item:");
-        double num = entrada.nextDouble();
-        caixa.adicionarItem(num);
-        
-        
-            
+        for (;;) {
+            num = entrada.nextDouble();
+            caixa.adicionarItem(num);
 
+            if (num == -1) {
+                System.out.println("Total venda: " + caixa.getTotalVenda());
+                break;
+            }
+
+        }
+        System.out.println("Digite o valor em dinheiro para pagar a conta:");
+        num = entrada.nextDouble();
+        caixa.finalizarVenda(num);
+        if (caixa.finalizarVenda(num) == false) {
+            do {
+                System.out.println("Valor insuficiente. Digite novamente o valor em dinheiro:");
+                num = entrada.nextDouble();
+                caixa.finalizarVenda(num);
+            } while (caixa.finalizarVenda(num) == false);
+
+        }
+        
+        System.out.println("Troco: "+caixa.getTroco());
     }
 }
