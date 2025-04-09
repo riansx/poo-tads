@@ -1,7 +1,13 @@
+package Herança;
+
 public class Forma {
     
-    protected String nome;
+    private String nome;
     private int lado;
+    
+    public Forma(String nm){
+        nome = nm;
+    }
     
     public void setNome(String nome2){
         nome = nome2;
